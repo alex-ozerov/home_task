@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body style="margin-left: 30%; margin-right: 30%">
+<table style="text-align: left; padding: 3em; width: 100%">
+    <tr>
+        <td>Добро пожаловать во вселенную звездных войн!
+                        Выберите страницу:</td>
+    </tr>
+    <tr>
+        <th>name_page</th>
+        <th>Link</th>
+    </tr>
+    <tr>
+        <td>lukepage</td>
+        <td><a href="{% url 'text_luk' %}" type="button">lukepage link</a></td>
+    </tr>
+    <tr>
+        <td>hanpage</td>
+        <td><a href="{% url 'text_han' %}" type="button">hanpage link</a></td>
+    </tr>
+    <tr>
+        <td>leipage</td>
+        <td><a href="{% url 'text_lei' %}" type="button">leipage link</a></td>
+    </tr>
+</table>
+
+
+<div id="ajax_content" style="width:300px; height:300px">
+
+</div>
+<!-- Cross Site Request Forgery protection token -->
+{% csrf_token %}
+
+</body>
+<script>
+    function sendRequest(requestString, contentType) {
+
+        let request_type = requestString;
+        <!-- С помощью шаблонного тега Django нельзя вставлять сразу в код на JavaScript важные данные -->
+        let csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        let url = $("#ajax-content-wrapper").attr("data-url");
+
+        $.ajax({
+            method: request_type,
+            data: {
+                csrfmiddlewaretoken: csrftoken,
+                this_is: request_type,
+                type: contentType,
+            },
+            url: url,
+            beforeSend: function(request) {
+                request.setRequestHeader("X-CSRFToken", csrftoken)
+            },
+            success: function (result) {
+                if (contentType === 'file'){
+                    $('#ajax_content').html('<img src="data:image/jpeg;base64,' + result
+                        + '" style="width:300px;height:200px"/>');
+                } else {
+                    console.log(result)
+                    $('#ajax_content').text(result)
+                }
+            },
+            error: function (result) {
+                console.log(result.statusText, '\n', result.responseText)
+                $('#ajax_content').text(result.statusText)
+            }
+        })
+        ;
+    }
+</script>
+</html>
