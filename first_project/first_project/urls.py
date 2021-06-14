@@ -22,5 +22,7 @@ urlpatterns = [
     path('first_app_urls/', include('first_app.urls')),
     path('lesson_2/', include('lesson_2.urls')),
     path('lesson_3/', include('lesson_3.task_1_urls')),
-    path('lesson_3/', include('lesson_3.task_2_urls'))
+    path('lesson_3/', include('lesson_3.task_2_urls')),
+    path('lesson_4/', include('lesson_4.task_1_urls')),
+    path('lesson_4/', include('lesson_4.task_2_urls'))
 ]
