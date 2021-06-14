@@ -17,7 +17,15 @@
     </tr>
     <tr>
         <td>lukepage</td>
-        <td><a href="{% url 'posts_list/lukepage/' %}" type="button">{{name}} link</a></td>
+        <td><a href="{% url 'posts_list' 'lukepage' %}" type="button">lukepage link</a></td>
+    </tr>
+    <tr>
+        <td>hanpage</td>
+        <td><a href="{% url 'posts_list' 'hanpage' %}" type="button">hanpage link</a></td>
+    </tr>
+    <tr>
+        <td>leipage</td>
+        <td><a href="{% url 'posts_list' 'leipage' %}" type="button">leipage link</a></td>
     </tr>
 </table>
 

@@ -1,4 +1,3 @@
-
-{% for task in lets_do_it|dictsort:"priority" %}
+{% for task in lets_do_it|dictsortreversed:"priority" %}
     * {{task.priority}} {{ task.task }}
 {% endfor %}

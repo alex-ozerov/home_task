@@ -8,24 +8,11 @@
 <body style="margin-left: 30%; margin-right: 30%">
 <table style="text-align: left; padding: 3em; width: 100%">
     <tr>
-        <td>Добро пожаловать во вселенную звездных войн!
-                        Выберите страницу:</td>
+        <th>{{ text }}</th>
     </tr>
     <tr>
-        <th>name_page</th>
-        <th>Link</th>
+        <td><a href="{% url 'home' %}" type="button">home link</a></td>
     </tr>
-    <tr>
-        <td>lukepage</td>
-        <td><a href="{% url 'text_luk' %}" type="button">lukepage link</a></td>
-    </tr>
-    <tr>
-        <td>hanpage</td>
-        <td><a href="{% url 'text_han' %}" type="button">hanpage link</a></td>
-    </tr>
-    <tr>
-        <td>leipage</td>
-        <td><a href="{% url 'text_lei' %}" type="button">leipage link</a></td>
     </tr>
 </table>
 
