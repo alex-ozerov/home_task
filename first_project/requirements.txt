@@ -1,0 +1,4 @@
+psycopg2==2.8.5
+django==3.0.6
+Pillow==7.1.2
+django-durationwidget==1.0.5

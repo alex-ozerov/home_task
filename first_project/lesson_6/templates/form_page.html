@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="POST" enctype="multipart/form-data" class="row g-3">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <div class="form-floating">
+                {{ form.name }}
+                {{ form.name.label_tag }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                {{ form.gender }}
+                {{ form.gender.label_tag }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                {{ form.email }}
+                {{ form.email.label_tag }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                {{ form.password }}
+                {{ form.password.label_tag }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label" for="{{ form.profile_picture.id_for_label }}">
+                {{ form.profile_picture.label }}
+            </label>
+            {{ form.profile_picture }}
+        </div>
+        <div class="col-md-6">
+            <label class="form-label" for="{{ form.additional_file.id_for_label }}">
+                {{ form.additional_file.label }}
+            </label>
+            {{ form.additional_file }}
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating d-flex justify-content-between">
+                {{ form.birthday }}
+                {{ form.birthday.label_tag }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                {{ form.average_score }}
+                {{ form.average_score.label_tag }}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label d-block w-100" for="{{ form.work_experience.id_for_label }}">
+                {{ form.work_experience.label }}
+            </label>
+            <div class="d-flex justify-content-between">
+                {{ form.work_experience }}
+            </div>
+        </div>
+        <div class="col-md-12 align-bottom">
+            <div class="form-check form-switch">
+                {{ form.agreement.label_tag }}
+                {{ form.agreement }}
+            </div>
+        </div>
+        <div class="col-12 text-center" type="submit">
+            <button type="submit" class="btn-lg btn-primary">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+        </div>
+        <!--{{ form.as_p }}-->
+    </form>
+{% endblock %}

@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'lesson_2',
     'lesson_3',
     'lesson_4',
+    'lesson_6',
+    'durationwidget'
 ]
 
 MIDDLEWARE = [
@@ -122,6 +124,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    "django_courses" + STATIC_URL,
+    "lesson_6" + STATIC_URL
+]
+
+MEDIA_ROOT = 'lesson_6/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
